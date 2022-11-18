@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Reader’s Guild !!!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Reader’s Guild is an online web portal where enthusiastic readers around the vicinity share books among themselves.
+Book owners can advertise the books in their possession
+Readers can request and borrow books
+Reader’s Guild is an online web portal where enthusiastic readers around the vicinity share books among themselves.
+Book owners can advertise the books in their possession
+Readers can request and borrow books
+
 
 ## Available Scripts
 
