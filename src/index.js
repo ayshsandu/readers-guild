@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { AuthProvider } from "@asgardeo/auth-react";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+     <AuthProvider
+            config={ {
+                signInRedirectURL: "http://localhost:3000/",
+                signOutRedirectURL: "http://localhost:3000/",
+                clientID: "tvALgLe2isv6PoecYbPEMDdbNsga",
+                baseUrl: "https://api.asgardeo.io/t/readersguild",
+                scope: [ "openid","profile" ]
+            } }
+         >
+          <App />
+        </AuthProvider>
+
   </React.StrictMode>
 );
 
