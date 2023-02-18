@@ -26,3 +26,21 @@ const BookDetails = ({ book }) => {
 };
 
 export default BookDetails;
+
+// function BookDetails(props) {
+//     const { isbn } = props.match.params;
+  
+//     // Call your API to fetch the book details using the ISBN
+  
+//     return (
+//       <div>
+//         <h2>Book Details</h2>
+//         <p>ISBN: {isbn}</p>
+//         <p>Title: {book.title}</p>
+//         <p>Author: {book.author}</p>
+//         <p>Description: {book.description}</p>
+//         <Button>Add to Cart</Button>
+//       </div>
+//     );
+//   }
+  

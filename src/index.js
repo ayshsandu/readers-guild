@@ -17,6 +17,7 @@ root.render(
                 clientID: "tvALgLe2isv6PoecYbPEMDdbNsga",
                 baseUrl: "https://api.asgardeo.io/t/readersguild",
                 scope: [ "openid","profile" ],
+                resourceServerURLs: [ "https://66277e3c-5cbc-4840-83e8-490c20d45fce-dev.e1-us-east-azure.st.choreoapis.dev/mcbs/books/1.0.0" ]
 
             } }
          >
