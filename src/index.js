@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from "@asgardeo/auth-react";
+import 'semantic-ui-css/semantic.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -15,7 +16,8 @@ root.render(
                 signOutRedirectURL: "http://localhost:3000/",
                 clientID: "tvALgLe2isv6PoecYbPEMDdbNsga",
                 baseUrl: "https://api.asgardeo.io/t/readersguild",
-                scope: [ "openid","profile" ]
+                scope: [ "openid","profile" ],
+
             } }
          >
           <App />
