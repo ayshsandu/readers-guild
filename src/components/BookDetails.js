@@ -1,5 +1,6 @@
 /**
  * This component is responsible for displaying the details of a book.
+ * Not used yet
  */
 import React from 'react';
 import { Button, Card, Icon, Image } from 'semantic-ui-react';

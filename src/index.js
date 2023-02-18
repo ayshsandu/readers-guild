@@ -12,11 +12,11 @@ root.render(
   <React.StrictMode>
      <AuthProvider
             config={ {
-                signInRedirectURL: "http://localhost:3000/",
-                signOutRedirectURL: "http://localhost:3000/",
-                clientID: "tvALgLe2isv6PoecYbPEMDdbNsga",
-                baseUrl: "https://api.asgardeo.io/t/readersguild",
-                scope: [ "openid","profile" ],
+                signInRedirectURL: "http://localhost:3000",
+                signOutRedirectURL: "http://localhost:3000",
+                clientID: "jZTq86HfRpVL9VixjqlRxFts3G8a",
+                baseUrl: "https://stage.api.asgardeo.io/t/choreotestaysh",
+                scope: [ "openid","profile", "urn:choreotestaysh:books:add-books", "urn:choreotestaysh:books:delete-books", "urn:choreotestaysh:books:list-books", "urn:choreotestaysh:books:update-books" ],
                 resourceServerURLs: [ "https://66277e3c-5cbc-4840-83e8-490c20d45fce-dev.e1-us-east-azure.st.choreoapis.dev/mcbs/books/1.0.0" ]
 
             } }
