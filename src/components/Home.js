@@ -6,6 +6,7 @@ import logo from "../images/book-reader.png";
 
 export const Home = () => {
    const [showAddBookModal, setShowAddBookModal] = useState(false);
+   const [showUnAuthorisedModal, setshowUnAuthorisedModal] = useState(false);
    const [newBook, setNewBook] = useState({});
    const baseUrl = 'https://66277e3c-5cbc-4840-83e8-490c20d45fce-dev.e1-us-east-azure.st.choreoapis.dev/mcbs/books/1.0.0';
    const { state, httpRequest } = useAuthContext();
@@ -30,6 +31,20 @@ export const Home = () => {
             console.error("Error adding book:", error);
          }
    };
+
+   /**
+    * function to Open modal only if the current authenticated user allowed to add books
+    */
+const openModal = () => {
+      debugger;
+      if (state.allowedScopes.includes("urn:choreotestaysh:books:add-books")) {
+         setShowAddBookModal(true);
+      } else {
+         // alert("You are not authorized to add books");
+         setshowUnAuthorisedModal(true);
+      }
+}
+
    return (
       <div>
          {!state.isAuthenticated ? (
@@ -48,7 +63,7 @@ export const Home = () => {
                   <Button
                      primary
                      className="center aligned"
-                     onClick={() => setShowAddBookModal(true)}
+                     onClick={() => openModal()}
                   >
                      Add Book
                   </Button>
@@ -108,6 +123,17 @@ export const Home = () => {
                         onClick={handleAddBook}
                      />
                   </Modal.Actions>
+               </Modal>
+               <Modal open={showUnAuthorisedModal} onClose={() => setshowUnAuthorisedModal(false)}>
+               <Modal.Header>'Unauthorized!'</Modal.Header>
+               <Modal.Content>
+                  <p>You are not authorized to add books</p>
+               </Modal.Content>
+               <Modal.Actions>
+                     <Button color="black" onClick={() => setshowUnAuthorisedModal(false)}>
+                        Cancel
+                     </Button>
+               </Modal.Actions>  
                </Modal>
             </>
          )}
