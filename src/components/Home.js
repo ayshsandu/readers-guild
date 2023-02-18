@@ -2,6 +2,7 @@ import React from "react";
 import logo from '../images/book-reader.png';
 import { useAuthContext } from "@asgardeo/auth-react";
 import { Button, Header, Image,Icon } from 'semantic-ui-react';
+import BookList from './BookList';
 
 export const Home = () => {
 const { state, signIn} = useAuthContext();
@@ -16,6 +17,7 @@ return (
          <Header.Content>Welcome to <strong>Reader's Guild</strong> !!!</Header.Content>
          {/* <Button onClick={ () => signIn({"ui_locale": "en_US en_FR"}) } >Sing-In</Button> */}
        </Header>
+       <BookList/>
      </div>
     );
 };

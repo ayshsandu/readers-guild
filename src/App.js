@@ -1,10 +1,11 @@
 import OpenBook from './images/open-book.jpeg';
 import './App.css';
 import { useAuthContext } from "@asgardeo/auth-react";
-import { Library } from './components/Library.js'
 import { Home } from './components/Home.js'
 import BookList from './components/BookList';
 import { Navbar } from "./components/Navbar";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 function App() {
 
@@ -12,18 +13,15 @@ function App() {
   console.log(state);
   return (
 
-    <div className="App">
-      <header className="App-header">
-        <Navbar />
-        {state.isAuthenticated
-          ? (
-            <><Library /><BookList /></>
-          ) : (
-            <><Home /><BookList /></>
-
-          )}
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar/>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/books" component={BookList} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
