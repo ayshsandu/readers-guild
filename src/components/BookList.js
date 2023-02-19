@@ -8,7 +8,7 @@ function BookList() {
   const [books, setBooks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const baseUrl = 'https://66277e3c-5cbc-4840-83e8-490c20d45fce-dev.e1-us-east-azure.st.choreoapis.dev/mcbs/books/1.0.0';
+  const baseUrl = process.env.REACT_APP_REST_API_BACKEND_URL;
 
   const { httpRequest } = useAuthContext();
 

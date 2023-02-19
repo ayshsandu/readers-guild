@@ -10,24 +10,27 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-     <AuthProvider
-            config={ {
-                signInRedirectURL: "http://localhost:3000",
-                signOutRedirectURL: "http://localhost:3000",
-                clientID: "jZTq86HfRpVL9VixjqlRxFts3G8a",
-                baseUrl: "https://stage.api.asgardeo.io/t/choreotestaysh",
-                scope: [ "openid","profile", "urn:choreotestaysh:books:add-books", "urn:choreotestaysh:books:delete-books", "urn:choreotestaysh:books:list-books", "urn:choreotestaysh:books:update-books" ],
-                resourceServerURLs: [ "https://66277e3c-5cbc-4840-83e8-490c20d45fce-dev.e1-us-east-azure.st.choreoapis.dev/mcbs/books/1.0.0" ]
-
-            } }
-         >
-          <App />
-        </AuthProvider>
-
-  </React.StrictMode>
+    <AuthProvider
+      config={ {
+        signInRedirectURL: process.env.REACT_APP_SIGNIN_REDIRECT_URL,
+        signOutRedirectURL: process.env.REACT_APP_SIGNOUT_REDIRECT_URL,
+        clientID: process.env.REACT_APP_CLIENT_ID,
+        baseUrl: process.env.REACT_APP_BASE_URL,
+        scope: [
+          "openid",
+          "profile",
+          process.env.REACT_APP_BOOKS_ADD,
+          process.env.REACT_APP_BOOKS_DELETE,
+          process.env.REACT_APP_BOOKS_LIST,
+          process.env.REACT_APP_BOOKS_UPDATE
+        ],
+        resourceServerURLs: [ process.env.REACT_APP_RESOURCE_SERVER_URL ]
+      } }
+    >
+      <App />
+    </AuthProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
