@@ -12,30 +12,30 @@ export const Home = () => {
    const { state, httpRequest } = useAuthContext();
 
    const requestConfig = {
-       method: "POST",
-       url: baseUrl + "/books",
-       data : [newBook],
-       withCredentials: false
+      method: "POST",
+      url: baseUrl + "/books",
+      data: [newBook],
+      withCredentials: false
    };
 
-/**
- * Implement handleAddbook function with auth-react library
- */
+   /**
+    * Implement handleAddbook function with auth-react library
+    */
    const handleAddBook = async () => {
-         try {
-            newBook.isAvailable = true;
-            const response = await httpRequest(requestConfig);
-            console.log("Book added successfully:", response.data);
-            setShowAddBookModal(false);
-         } catch (error) {
-            console.error("Error adding book:", error);
-         }
+      try {
+         newBook.isAvailable = true;
+         const response = await httpRequest(requestConfig);
+         console.log("Book added successfully:", response.data);
+         setShowAddBookModal(false);
+      } catch (error) {
+         console.error("Error adding book:", error);
+      }
    };
 
    /**
     * function to Open modal only if the current authenticated user allowed to add books
     */
-const openModal = () => {
+   const openModal = () => {
       debugger;
       if (state.allowedScopes.includes("urn:choreotestaysh:books:add-books")) {
          setShowAddBookModal(true);
@@ -43,7 +43,7 @@ const openModal = () => {
          // alert("You are not authorized to add books");
          setshowUnAuthorisedModal(true);
       }
-}
+   }
 
    return (
       <div>
@@ -125,15 +125,15 @@ const openModal = () => {
                   </Modal.Actions>
                </Modal>
                <Modal open={showUnAuthorisedModal} onClose={() => setshowUnAuthorisedModal(false)}>
-               <Modal.Header>'Unauthorized!'</Modal.Header>
-               <Modal.Content>
-                  <p>You are not authorized to add books</p>
-               </Modal.Content>
-               <Modal.Actions>
+                  <Modal.Header>'Unauthorized!'</Modal.Header>
+                  <Modal.Content>
+                     <p>You are not authorized to add books</p>
+                  </Modal.Content>
+                  <Modal.Actions>
                      <Button color="black" onClick={() => setshowUnAuthorisedModal(false)}>
                         Cancel
                      </Button>
-               </Modal.Actions>  
+                  </Modal.Actions>
                </Modal>
             </>
          )}
