@@ -9,7 +9,6 @@ import 'semantic-ui-css/semantic.min.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <React.StrictMode>
     <AuthProvider
       config={ {
         signInRedirectURL: process.env.REACT_APP_SIGNIN_REDIRECT_URL,
@@ -28,8 +27,7 @@ root.render(
       } }
     >
       <App />
-    </AuthProvider>
-  </React.StrictMode>,
+    </AuthProvider>,
   document.getElementById('root')
 );
 

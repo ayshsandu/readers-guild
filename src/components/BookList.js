@@ -12,25 +12,30 @@ function BookList() {
 
   const { httpRequest } = useAuthContext();
 
-  // const requestConfig = {
-  //   headers: {
-  //     "Access-Control-Allow-Origin": "*"
-  //   },
-  //   method: "GET",
-  //   url: baseUrl + '/books',
-  //   attachToken: false
-  // };
+  const requestConfig = {
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
+    method: "GET",
+    url: baseUrl + '/books',
+    attachToken: false
+  };
 
   useEffect(() => {
     async function fetchBooks() {
       console.log('baseUrl', baseUrl);
-      //add allow origin header to the request
+      //use Axios for the public API invocation
       const response = await axios.get(baseUrl + '/books', {
         headers: { "Access-Control-Allow-Origin": "*" }
       }, {});
 
       console.log(response.data);
       setBooks(response.data);
+
+      // Use httpRequest from auth-react library
+      // const response = await httpRequest(requestConfig);
+      // console.log(response.data);
+      // setBooks(response.data);
     }
 
     fetchBooks();

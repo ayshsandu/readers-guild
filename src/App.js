@@ -1,4 +1,3 @@
-import OpenBook from './images/open-book.jpeg';
 import './App.css';
 import { Home } from './components/Home.js'
 import BookList from './components/BookList';
